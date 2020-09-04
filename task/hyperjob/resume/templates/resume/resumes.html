@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resumes</title>
+</head>
+<body>
+<ul>
+    {% for resume in resumes %}
+    <li>
+        <div>{{ resume.author.username }}: {{ resume.description }}</div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

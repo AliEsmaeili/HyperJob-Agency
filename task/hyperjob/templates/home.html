@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+{% if not user %}
+<p>You should first login</p>
+{% elif user.is_staff %}
+<form method="post" action="/vacancy/new">{% csrf_token %}
+    <p>New vacancy</p>
+    <p>{{ form.as_p }}</p>
+    <button type="submit">Create</button>
+</form>
+{% else %}
+<form method="post" action="/resume/new">{% csrf_token %}
+    <p>New resume:</p>
+    <p>{{ form.as_p }}</p>
+    <button type="submit">Create</button>
+</form>
+{% endif %}
+</body>
+</html>
